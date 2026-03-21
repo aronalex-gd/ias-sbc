@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase';
 
 // Logos (Ensure these paths match your folder structure)
 import iasLogo from '../assets/images/IEEE IAS Logo.png';
-import ieeeLogo from '../assets/images/IEEE_Logo.png'; 
+import ieeeLogo from '../assets/images/IEEE_logo.png'; 
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
