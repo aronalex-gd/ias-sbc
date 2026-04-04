@@ -5,13 +5,13 @@
      import member1 from '../assets/team/member1.jpg';
   3. Change the `image: null` to `image: member1` for the corresponding member.
 */
-import member1 from '../assets/team/JITHIN.JPG';
+import member1 from '../assets/team/JITHIN.jpg';
 import member2 from '../assets/team/ABHISHEK.webp';
 import member3 from '../assets/team/ASHLIN (2).jpg';
 import member4 from '../assets/team/ARYA.jpg';
 import member5 from '../assets/team/ARON.jpg';
 import member6 from '../assets/team/SANVIYA.jpg';
-import member7 from '../assets/team/ARJUN.JPG';
+import member7 from '../assets/team/ARJUN.jpg';
 import member8 from '../assets/team/MINHA.jpg';
 import member9 from '../assets/team/JEEVAN.jpg';
 import member10 from '../assets/team/PALLAVI.webp';
