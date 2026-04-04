@@ -148,7 +148,7 @@ const Execom = () => {
               Member Card Preview
             </motion.p>
             <div className="flex justify-center">
-              <MemberCard name={EXECOM[0].name} memberId="101163901" role="ias-member" iasStatus="verified" />
+              <MemberCard name="IEEE Member" memberId="101167901" role="ias-member" iasStatus="verified" />
             </div>
           </div>
         )}

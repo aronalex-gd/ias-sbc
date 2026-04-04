@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedin, FaGlobe } from 'react-icons/fa';
+import iasLogoImg from '../assets/logos/ias1.png';
 
 const FooterLink = ({ href, to, children }) => {
   const cls = "text-zinc-500 hover:text-ias-green text-sm transition-colors duration-200 flex items-center gap-1.5 group";
@@ -27,7 +28,7 @@ const Footer = () => (
           <div className="flex items-center gap-4 mb-5">
             {/* Main Chapter Logo */}
             <img 
-              src="src/assets/logos/ias1.png" 
+              src={iasLogoImg}
               alt="IEEE IAS JECC Logo" 
               className="h-10 w-auto object-contain"
             />
