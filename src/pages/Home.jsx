@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, useScroll, useTransform, stagger, animate } from 'framer-motion';
-import { FAQS } from '../data';
+import { FAQS } from '../data/index';
 
 // 3D import removed
 
