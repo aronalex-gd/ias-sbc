@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
+import ieeeLogoImg from '../assets/logos/ieeesbc1.png';
+import iasLogoImg from '../assets/logos/ias1.png';
+import ieeesbcLogoImg from '../assets/logos/ieee1.png';
 
 /* ── Nav Link with animated underline ─────────────────────────────────────── */
 const NavLink = ({ to, label, isActive, onClick }) => (
@@ -28,7 +31,7 @@ const NavLink = ({ to, label, isActive, onClick }) => (
 /* ── Image logos ──────────────────────────────────────────────────────── */
 const IEEELogo = () => (
   <img
-    src="src/assets/logos/ieeesbc1.png"
+    src={ieeeLogoImg}
     alt="IEEE"
     width={90}
     height={60}
@@ -38,7 +41,7 @@ const IEEELogo = () => (
 
 const IASLogo = () => (
   <img
-    src="src/assets/logos/ias1.png"
+    src={iasLogoImg}
     alt="IAS"
     width={40}
     height={40}
@@ -48,7 +51,7 @@ const IASLogo = () => (
 
 const JECCLogo = () => (
   <img
-    src="src/assets/logos/ieee1.png"
+    src={ieeesbcLogoImg}
     alt="JECC SBC"
     width={80}
     height={40}
