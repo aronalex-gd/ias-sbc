@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
-// Component Imports
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import RenewalBanner from './components/RenewalBanner';
+import { ToastProvider } from './components/Toast';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
-// Page Imports
 import Home from './pages/Home';
 import About from './pages/About';
 import Execom from './pages/Execom';
@@ -13,44 +16,86 @@ import Activities from './pages/Activities';
 import Auth from './pages/Auth';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
+import AdminVerify from './pages/AdminVerify';
+import Admin from './pages/Admin';
 
-// A small helper component to reset scroll position on page change
+const PageTransition = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+  >
+    {children}
+  </motion.div>
+);
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 };
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/"                 element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/about"            element={<PageTransition><About /></PageTransition>} />
+        <Route path="/execom"           element={<PageTransition><Execom /></PageTransition>} />
+        <Route path="/activities"       element={<PageTransition><Activities /></PageTransition>} />
+        <Route path="/auth"             element={<PageTransition><Auth /></PageTransition>} />
+        <Route path="/profile"          element={
+          <ProtectedRoute>
+            <PageTransition><Profile /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/events/:id"       element={
+          <ProtectedRoute>
+            <PageTransition><Register /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/about/ias"        element={<PageTransition><About /></PageTransition>} />
+        <Route path="/membership/benefits" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/admin/verify"     element={
+          <ProtectedRoute>
+            <PageTransition><AdminVerify /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/admin"            element={
+          <ProtectedRoute>
+            <PageTransition><Admin /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="*"                 element={<PageTransition><Home /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+function AppInner() {
+  return (
+    <ToastProvider>
+      <AuthProvider>
+        <div className="min-h-screen bg-surface text-white noise-bg">
+          <ScrollToTop />
+          <Navbar />
+          <RenewalBanner />
+          <main>
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+        </div>
+      </AuthProvider>
+    </ToastProvider>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-ias-green selection:text-black">
-        {/* Helper to reset scroll */}
-        <ScrollToTop />
-        
-        {/* Navigation - Stays visible on all pages */}
-        <Navbar />
-
-        {/* Page Content - Swaps based on the URL */}
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/execom" element={<Execom />} />
-            <Route path="/activities" element={<Activities />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/profile" element={<Profile />} />     
-            <Route path="/register/:eventId" element={<Register />} />
-            {/* Optional: 404 Redirect to Home */}
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </main>
-
-        {/* Simple Footer */}
-        <Footer />
-      </div>
+      <AppInner />
     </Router>
   );
 }

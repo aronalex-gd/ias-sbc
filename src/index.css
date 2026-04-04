@@ -1,24 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* This defines your custom IAS color for the whole project */
-  --color-ias-green: #00B050;
-  
-  /* Use a professional font-family */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-ias-green: #00D26A;
+  --color-ias-green-dim: #00B050;
+  --color-surface: #0C0C0E;
+  --color-surface-2: #111114;
+  --color-surface-3: #18181C;
+  --color-border: rgba(255,255,255,0.06);
+  --color-border-hover: rgba(0,210,106,0.35);
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-/* Base styles for the website */
-@layer base {
-  body {
-    background-color: #0A0A0A;
-    color: white;
-  }
+* {
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0C0C0E;
+  color: white;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: #00D26A;
+  color: #000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0C0C0E; }
+::-webkit-scrollbar-thumb { background: #00D26A33; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #00D26A66; }
+
+/* Custom utilities */
 @layer utilities {
-  .backdrop-blur-md {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* For Safari support */
+  .font-display {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #00D26A 0%, #00FF87 50%, #00B050 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .glass-hover:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(0,210,106,0.25);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px rgba(0, 210, 106, 0.2), 0 0 60px rgba(0, 210, 106, 0.05);
+  }
+
+  .glow-green-sm {
+    box-shadow: 0 0 15px rgba(0, 210, 106, 0.15);
+  }
+
+  .noise-bg::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .input-field {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .input-field:focus {
+    border-color: rgba(0, 210, 106, 0.5);
+    background: rgba(0, 210, 106, 0.04);
+    box-shadow: 0 0 0 3px rgba(0, 210, 106, 0.06);
+  }
+
+  .input-field::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .btn-primary {
+    background: #00D26A;
+    color: #000;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: #00FF87;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 210, 106, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97) translateY(0);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(0, 210, 106, 0.4);
+    color: #00D26A;
+    background: rgba(0, 210, 106, 0.05);
+  }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    background: linear-gradient(90deg, #1a1a1e 25%, #222226 50%, #1a1a1e 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
   }
 }
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
