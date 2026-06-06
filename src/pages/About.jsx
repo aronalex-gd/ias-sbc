@@ -158,7 +158,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                    className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 ${
+                    className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16 pl-14 md:pl-0 ${
                       isEven ? 'md:flex-row-reverse' : ''
                     }`}
                   >
@@ -172,7 +172,7 @@ const About = () => {
                     </div>
 
                     {/* Center Node */}
-                    <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-8 h-8">
+                    <div className="absolute left-8 md:left-1/2 top-12 md:top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center w-8 h-8">
                       <motion.div 
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}

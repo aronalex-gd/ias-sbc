@@ -58,15 +58,43 @@ const EventCard = ({ event, index, inView }) => {
         )}
 
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-          <Link
-            to={`/events/${event.id}`}
-            className="inline-flex items-center gap-2 w-full justify-center py-3.5 bg-white text-black font-black uppercase text-[11px] tracking-widest rounded-2xl hover:bg-ias-green transition-colors duration-200"
-          >
-            Register Now
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+          {event.registration_link ? (
+            event.registration_link.startsWith('/') ? (
+              <Link
+                to={event.registration_link}
+                className="inline-flex items-center gap-2 w-full justify-center py-3.5 bg-white text-black font-black uppercase text-[11px] tracking-widest rounded-2xl hover:bg-ias-green transition-colors duration-200"
+              >
+                Register Now
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            ) : (
+              <a
+                href={event.registration_link.startsWith('http://') || event.registration_link.startsWith('https://') 
+                  ? event.registration_link 
+                  : `https://${event.registration_link}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 w-full justify-center py-3.5 bg-white text-black font-black uppercase text-[11px] tracking-widest rounded-2xl hover:bg-ias-green transition-colors duration-200"
+              >
+                Register Now
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            )
+          ) : (
+            <Link
+              to={`/events/${event.id}`}
+              className="inline-flex items-center gap-2 w-full justify-center py-3.5 bg-white text-black font-black uppercase text-[11px] tracking-widest rounded-2xl hover:bg-ias-green transition-colors duration-200"
+            >
+              Register Now
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          )}
         </motion.div>
       </div>
     </motion.div>

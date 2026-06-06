@@ -70,8 +70,8 @@ const ExecomCard = ({ name, role, image }) => {
 
         {/* Role badge floated on photo */}
         <div className="absolute bottom-3 left-3 right-3">
-          <div className="glass px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/5 group-hover:border-ias-green/20 transition-colors duration-500">
-            <p className="text-[9px] font-bold text-ias-green uppercase tracking-[0.25em] truncate text-center">{role}</p>
+          <div className="glass px-3 py-1 rounded-xl backdrop-blur-md border border-white/5 group-hover:border-ias-green/20 transition-colors duration-500">
+            <p className="text-[8px] sm:text-[9px] font-bold text-ias-green uppercase tracking-[0.12em] sm:tracking-[0.25em] text-center whitespace-normal break-words flex items-center justify-center min-h-[1.5rem] md:min-h-0">{role}</p>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ const Execom = () => {
           variants={staggerList}
           initial="hidden"
           animate={gridInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+          className="grid grid-cols-1 min-[385px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5"
         >
           {EXECOM.map((member) => (
             <ExecomCard key={member.id} {...member} />

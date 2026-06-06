@@ -222,25 +222,76 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden bg-[#0F0F12] border-b border-white/5 overflow-hidden"
           >
-            <div className="px-6 py-8 space-y-6">
-              <Link to="/" className="block text-sm font-bold uppercase tracking-widest text-zinc-400">Home</Link>
-              <Link to="/about/ias" className="block text-sm font-bold uppercase tracking-widest text-zinc-400">About IAS</Link>
-              <Link to="/activities" className="block text-sm font-bold uppercase tracking-widest text-zinc-400">Events</Link>
-              <Link to="/execom" className="block text-sm font-bold uppercase tracking-widest text-zinc-400">Team</Link>
-              <hr className="border-white/5" />
+            <motion.div 
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={{
+                open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+                closed: { transition: { staggerChildren: 0.03, staggerDirection: -1 } }
+              }}
+              className="px-6 py-8 space-y-6"
+            >
+              {[
+                { to: "/", label: "Home" },
+                { to: "/about/ias", label: "About IAS" },
+                { to: "/activities", label: "Events" },
+                { to: "/execom", label: "Team" }
+              ].map((link) => (
+                <motion.div
+                  key={link.to}
+                  variants={{
+                    open: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+                    closed: { opacity: 0, x: -16, transition: { duration: 0.15 } }
+                  }}
+                >
+                  <Link 
+                    to={link.to} 
+                    onClick={() => setIsOpen(false)} 
+                    className={`block text-sm font-bold uppercase tracking-widest transition-colors ${
+                      isActive(link.to) ? 'text-ias-green' : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.hr 
+                variants={{
+                  open: { opacity: 0.1, scaleX: 1 },
+                  closed: { opacity: 0, scaleX: 0 }
+                }}
+                className="border-white/5" 
+              />
+              
               {user ? (
-                <>
-                  <Link to="/profile" className="block text-sm font-bold uppercase tracking-widest text-ias-green">Profile</Link>
+                <motion.div
+                  variants={{
+                    open: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+                    closed: { opacity: 0, x: -16, transition: { duration: 0.15 } }
+                  }}
+                  className="space-y-6"
+                >
+                  <Link to="/profile" onClick={() => setIsOpen(false)} className="block text-sm font-bold uppercase tracking-widest text-ias-green">Profile</Link>
                   {profile?.role === 'admin' && (
-                    <Link to="/admin" className="block text-sm font-bold uppercase tracking-widest text-ias-green">Admin Panel</Link>
+                    <Link to="/admin" onClick={() => setIsOpen(false)} className="block text-sm font-bold uppercase tracking-widest text-ias-green">Admin Panel</Link>
                   )}
-                </>
+                </motion.div>
               ) : (
-                <Link to="/auth" className="block text-sm font-bold uppercase tracking-widest text-white">Sign In</Link>
+                <motion.div
+                  variants={{
+                    open: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+                    closed: { opacity: 0, x: -16, transition: { duration: 0.15 } }
+                  }}
+                >
+                  <Link to="/auth" onClick={() => setIsOpen(false)} className="block text-sm font-bold uppercase tracking-widest text-white">Sign In</Link>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
