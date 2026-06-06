@@ -37,7 +37,7 @@ const Footer = () => (
             <div className="h-8 w-[1px] bg-white/10 mx-1" />
             <div>
               <div className="text-white font-bold tracking-tight">IEEE IAS JECC</div>
-              <div className="text-[9px] text-zinc-600 uppercase tracking-[0.25em]">SBC Chapter</div>
+              <div className="text-[9px] text-zinc-600 uppercase tracking-[0.25em]">SB Chapter</div>
             </div>
           </div>
           <p className="text-zinc-600 text-xs leading-relaxed max-w-xs">
@@ -83,17 +83,7 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Contact */}
-        <div className="md:col-span-3 md:col-start-10">
-          <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">Contact</h4>
-          <a href="mailto:iasjecc@gmail.com" className="text-zinc-500 hover:text-ias-green text-sm transition-colors block mb-2">
-            iasjecc@gmail.com
-          </a>
-          <p className="text-zinc-600 text-xs mt-4 leading-relaxed">
-            IEEE Kerala Section<br />
-            Kochi Subsection
-          </p>
-        </div>
+        
       </div>
 
       {/* Bottom bar */}

@@ -52,7 +52,7 @@ const About = () => {
     { year: 'March 2022', event: 'Chapter Founded', desc: 'IEEE IAS SBC JECC officially inaugurated at Jyothi Engineering College.' },
     { year: 'April 2022', event: 'First Major Event', desc: '' },
     { year: 'March 2026', event: 'Growth Phase', desc: 'Membership crossed 50 active members' },
-    { year: 'April 2026', event: 'Digital Platform', desc: 'Launched this member portal for seamless event registration and ID management.' },
+    { year: 'June 2026', event: 'Digital Platform', desc: 'Launched this member portal for seamless event registration and ID management.' },
     { year: '2026', event: 'Present Day', desc: 'Continuing to grow with more events, mentors, and industry connections.' },
   ];
 

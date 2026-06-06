@@ -23,26 +23,22 @@ export const EXECOM = [
   { id: 3, name: "Ashlin Theres James", role: "Vice Chair", image: member3 },
   { id: 4, name: "Arya P S", role: "Secretary", image: member4 },
   { id: 5, name: "Aron Alex", role: "Treasurer", image: member5 },
-  { id: 6, name: "Sanviya Sandeep", role: "Joint Secretary", image: member6 },
+  { id: 6, name: "Sanvya Sandeep", role: "Joint Secretary", image: member6 },
   { id: 7, name: "Arjun Mohan", role: "Media Lead", image: member7 },
   { id: 8, name: "Minha A", role: "Content Lead", image: member8 },
   { id: 9, name: "Jeevan K J", role: "Event Coordinator", image: member9 },
-  { id: 10, name: "Pallavi V", role: "Membership Lead", image: member10 },
+  { id: 10, name: "Pallavi V", role: "Membership Development Lead", image: member10 },
   
 ];
 
 export const FAQS = [
   {
     q: "How can I join IEEE IAS?",
-    a: "o join the IEEE Industry Applications Society (IAS), you must first be an IEEE member and then add the IAS society membership to your profile via the IEEE Membership Catalog.",
+    a: "To join the IEEE Industry Applications Society (IAS), you must first be an IEEE member and then add the IAS society membership to your profile via the IEEE Membership Catalog.",
   },
   {
     q: "What are the benefits for IEEE IAS students?",
     a: "Access to workshops, industrial visits, IEEE Xplore, and a global network of engineering professionals. You also get an official digital member ID card.",
-  },
-  {
-    q: "How does the event registration work?",
-    a: "Browse upcoming events, click Register, and confirm your details. You'll receive a QR-code ticket that the admin will scan at the venue for entry.",
   },
   {
     q: "What if I'm only an IEEE member, not IAS?",
