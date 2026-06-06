@@ -47,7 +47,7 @@ const ExecomCard = ({ name, role, image }) => {
           <motion.img
             src={image}
             alt={name}
-            className="w-full h-full object-cover transition-all duration-700 filter grayscale-[80%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110"
+            className="w-full h-full object-cover transition-all duration-700 filter grayscale-80 brightness-90 group-hover:grayscale-0 group-hover:brightness-110"
             whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           />
@@ -57,7 +57,7 @@ const ExecomCard = ({ name, role, image }) => {
             <motion.img
               src={`https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'S')}&background=0D0D12&color=00D26A&size=200&bold=true`}
               alt={name || "Placeholder"}
-              className="w-full h-full object-cover opacity-60 transition-all duration-700 filter grayscale-[80%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110"
+              className="w-full h-full object-cover opacity-60 transition-all duration-700 filter grayscale-80 brightness-90 group-hover:grayscale-0 group-hover:brightness-110"
               whileHover={{ scale: 1.08 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             />
@@ -66,12 +66,12 @@ const ExecomCard = ({ name, role, image }) => {
         )}
 
         {/* Gradient overlay on image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0E] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-linear-to-t from-surface via-transparent to-transparent opacity-80" />
 
         {/* Role badge floated on photo */}
         <div className="absolute bottom-3 left-3 right-3">
           <div className="glass px-3 py-1 rounded-xl backdrop-blur-md border border-white/5 group-hover:border-ias-green/20 transition-colors duration-500">
-            <p className="text-[8px] sm:text-[9px] font-bold text-ias-green uppercase tracking-[0.12em] sm:tracking-[0.25em] text-center whitespace-normal break-words flex items-center justify-center min-h-[1.5rem] md:min-h-0">{role}</p>
+            <p className="text-[8px] sm:text-[9px] font-bold text-ias-green uppercase tracking-[0.12em] sm:tracking-[0.25em] text-center whitespace-normal wrap-break-word flex items-center justify-center min-h-6 md:min-h-0">{role}</p>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ const Execom = () => {
   const gridInView = useInView(gridRef, { once: true, margin: '-60px' });
 
   return (
-    <div className="min-h-screen bg-[#0C0C0E] pt-32 pb-20 px-6 overflow-hidden">
+    <div className="min-h-screen bg-surface pt-32 pb-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

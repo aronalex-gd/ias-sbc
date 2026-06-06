@@ -17,11 +17,11 @@ const Ticket = ({ user, event }) => {
       className="relative max-w-sm mx-auto"
     >
       {/* Glow */}
-      <div className="absolute inset-0 bg-ias-green/10 rounded-[32px] blur-2xl" />
+      <div className="absolute inset-0 bg-ias-green/10 rounded-4xl blur-2xl" />
 
       <div className="relative bg-white rounded-[28px] overflow-hidden shadow-2xl shadow-black/50">
         {/* Header */}
-        <div className="bg-[#0C0C0E] px-8 py-6 text-center">
+        <div className="bg-surface px-8 py-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-1">
             <div className="w-6 h-6 bg-ias-green rounded-md flex items-center justify-center">
               <span className="font-display text-black text-[10px]">IAS</span>
@@ -59,7 +59,7 @@ const Ticket = ({ user, event }) => {
             <p className="text-xl font-black uppercase tracking-tight text-black">
               {user.full_name || 'Attendee'}
             </p>
-            <p className="text-[11px] font-mono font-bold mt-1 text-[#00B050]">
+            <p className="text-[11px] font-mono font-bold mt-1 text-ias-green-dim">
               ID: {user.membership_id || 'N/A'}
             </p>
           </div>

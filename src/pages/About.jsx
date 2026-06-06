@@ -57,7 +57,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0C0C0E] text-white overflow-hidden">
+    <div className="min-h-screen bg-surface text-white overflow-hidden">
 
       {/* Hero */}
       <section ref={heroRef} className="pt-40 pb-24 px-6 relative overflow-hidden">

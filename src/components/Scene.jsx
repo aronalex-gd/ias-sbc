@@ -181,7 +181,7 @@ const IASScene = ({ className = '' }) => {
   if (!webGLOk) {
     return (
       <div className={`flex items-center justify-center ${className}`}>
-        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-ias-green/30 to-ias-green/5 border-2 border-ias-green/40 flex items-center justify-center">
+        <div className="w-32 h-32 rounded-full bg-linear-to-br from-ias-green/30 to-ias-green/5 border-2 border-ias-green/40 flex items-center justify-center">
           <span className="font-display text-4xl text-ias-green">IAS</span>
         </div>
       </div>

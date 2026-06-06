@@ -34,7 +34,7 @@ const Footer = () => (
             />
             
             {/* Optional: Divider and secondary info/logo */}
-            <div className="h-8 w-[1px] bg-white/10 mx-1" />
+            <div className="h-8 w-px bg-white/10 mx-1" />
             <div>
               <div className="text-white font-bold tracking-tight">IEEE IAS JECC</div>
               <div className="text-[9px] text-zinc-600 uppercase tracking-[0.25em]">SB Chapter</div>

@@ -245,7 +245,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            className="hidden md:flex items-center justify-center relative z-10 min-h-[400px] w-full"
+            className="hidden md:flex items-center justify-center relative z-10 min-h-100 w-full"
           >
             {/* Live element background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
@@ -382,7 +382,7 @@ const Home = () => {
             <motion.a 
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
               href="https://ias.ieee.org/join-ias/" target="_blank" rel="noreferrer"
-              className="btn-ghost !border-ias-green !text-ias-green hover:!bg-ias-green/10"
+              className="btn-ghost border-ias-green! text-ias-green! hover:bg-ias-green/10!"
             >
               Join IEEE IAS
             </motion.a>

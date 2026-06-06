@@ -43,13 +43,13 @@ const Toast = ({ id, message, type, onRemove }) => (
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, y: -10, scale: 0.95 }}
     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-    className={`flex items-center gap-3 px-4 py-3 rounded-2xl border glass ${colorMap[type]} min-w-[280px] max-w-[380px] shadow-2xl`}
+    className={`flex items-center gap-3 px-4 py-3 rounded-2xl border glass ${colorMap[type]} min-w-70 max-w-95 shadow-2xl`}
   >
-    <span className="flex-shrink-0">{icons[type]}</span>
+    <span className="shrink-0">{icons[type]}</span>
     <p className="text-sm font-medium text-white/90 flex-1">{message}</p>
     <button
       onClick={() => onRemove(id)}
-      className="text-white/30 hover:text-white/60 transition-colors ml-2 flex-shrink-0"
+      className="text-white/30 hover:text-white/60 transition-colors ml-2 shrink-0"
     >
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
         <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -81,7 +81,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={toast}>
       {children}
-      <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 items-end">
+      <div className="fixed bottom-6 right-6 z-9999 flex flex-col gap-3 items-end">
         <AnimatePresence mode="popLayout">
           {toasts.map(t => (
             <Toast key={t.id} {...t} onRemove={removeToast} />
